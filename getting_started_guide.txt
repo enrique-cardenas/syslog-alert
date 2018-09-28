@@ -3,7 +3,9 @@ analyzing syslog messages with kafka and spark
 
 SUMMARY: 
 --------
-The goal of this lab is to implement a Spark streaming application that reads from an input topic of syslog messages, determines if the message severity/priority "exceeds" a threshold, and if so, creates and produces a record to an output topic of alerts.  Note that in syslog, priority/severity is defined with both strings as numbers.  
+The goal of this lab is to implement a Spark streaming application that reads from an input topic of syslog messages, 
+determines if the message severity/priority "exceeds" a threshold, and if so, creates and produces a record to an output topic
+of alerts.  Note that in syslog, priority/severity is defined with both strings as numbers.  
 
 The list below shows the mapping between number and string:
 7 - debug
@@ -21,7 +23,8 @@ Here is a sample syslog info message (priority 6):
 Here is a sample syslog err message (priority 3):
 3,16,Mar 28 14:08:18,mapr60,jcasaletto:,error message
 
-Important to note that your implementation must provide alerts for the threshold and anything more severe (i.e. less than or equal to the threshold).
+Important to note that your implementation must provide alerts for the threshold and anything more severe (i.e. less than or 
+equal to the threshold).
 
 
 TODO:
@@ -42,14 +45,16 @@ In order to complete this lab, you'll need to do the following:
 5. to generate a syslog message with a priority, run the following command
 $ logger -t local0.err "this is an err in local0 facility"
 
-6. Implement the TODO's defined in the Syslog2Alert.java source code provided in Files -> LAB4.  The records you produce in the output topic must conform to the following format:
+6. Implement the TODO's defined in the Syslog2Alert.java source code provided in Files -> LAB4.  The records you produce in 
+the output topic must conform to the following format:
 {"alert:":"2,16,Mar 28 14:25:15,mapr60,root:,crit message"}
 
 
 
 MISC NOTES:
 -----------
-1. When you start your zookeeper and kafka broker processes, they run as background jobs in your shell.  If you log out, they will still be running!  So make sure to kill them before logging out (as described in kafka_demo.txt).
+1. When you start your zookeeper and kafka broker processes, they run as background jobs in your shell.  If you log out, they
+will still be running!  So make sure to kill them before logging out (as described in kafka_demo.txt).
 
 example:
 -bash-4.2$ jobs
@@ -88,7 +93,9 @@ tail -f /tmp/kafka.out
 
 SUBMISSION:
 -----------
-In order to get full credit for this exercise, you must submit a single Java application source code file called Syslog2Alert.java in the spring2018.lab4 package.  This Spark application must generate messages to the output topic at appropriate priority levels and in the appropriate format.
+In order to get full credit for this exercise, you must submit a single Java application source code file called 
+Syslog2Alert.java in the spring2018.lab4 package.  This Spark application must generate messages to the output topic at 
+appropriate priority levels and in the appropriate format.
 
 
 RUBRIC:
